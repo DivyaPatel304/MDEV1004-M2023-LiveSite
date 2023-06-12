@@ -10,7 +10,7 @@ const index_1 = __importDefault(require("../Routes/index"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const db_1 = __importDefault(require("./db"));
-mongoose_1.default.connect(db_1.default.localURI);
+mongoose_1.default.connect(db_1.default.remoteURI);
 mongoose_1.default.connection.on('connected', () => {
     console.log(`Connected to MongoDB`);
 });
