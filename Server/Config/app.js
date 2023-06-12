@@ -10,7 +10,7 @@ const index_1 = __importDefault(require("../Routes/index"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const db_1 = __importDefault(require("./db"));
-mongoose_1.default.connect(db_1.default.remoteURI);
+mongoose_1.default.connect(db_1.default.localURI);
 mongoose_1.default.connection.on('connected', () => {
     console.log(`Connected to MongoDB`);
 });
@@ -23,6 +23,6 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
 app.use(body_parser_1.default.json());
-app.use('/', index_1.default);
+app.use('/api', index_1.default);
 exports.default = app;
 //# sourceMappingURL=app.js.map

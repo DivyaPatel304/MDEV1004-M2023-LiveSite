@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import db from './db';
 
 
-mongoose.connect(db.remoteURI);
+mongoose.connect(db.localURI);
 
 mongoose.connection.on('connected', () =>{
     console.log(`Connected to MongoDB`);
@@ -28,6 +28,6 @@ app.use(cookieParser());
 app.use(bodyParser.json()); 
 
 
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
 
 export default app;

@@ -3,9 +3,7 @@ let router = express.Router();
 
 import { DisplayMovieList, DisplayMovieByID, AddMovie, UpdateMovie, DeleteMovie } from '../Controller/movie';
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+
 
 router.get('/movie-list',  function(req, res, next){
    DisplayMovieList(req, res, next);
