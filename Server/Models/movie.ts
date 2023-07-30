@@ -1,4 +1,4 @@
-import { Schema,  model } from 'mongoose';
+import { Collection, Schema,  model } from 'mongoose';
 
 interface IMovie
 {
@@ -12,26 +12,60 @@ interface IMovie
     year: number,
     length: number,
     shortDescription: string,
-    mpaRating: number,
-    criticsRating: number,
-    posterLink: string
+    mpaRating: string,
+    criticsRating: number
 }
 
-let movieSchema = new Schema<IMovie>({
-    movieID: String,
-    title: String,
-    studio: String,
-    genres: [String],
-    directors: [String],
-    writers: [String],
-    actors: [String],
-    year: Number,
-    length: Number,
-    shortDescription: String,
-    mpaRating: Number,
-    criticsRating: Number,
-    posterLink: String
-});
+const movieSchema = new Schema<IMovie>({
+    movieID: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    studio: {
+      type: String,
+      required: true
+    },
+    genres: {
+      type: [String],
+      required: true
+    },
+    directors: {
+      type: [String],
+      required: true
+    },
+    writers: {
+      type: [String],
+      required: true
+    },
+    actors: {
+      type: [String],
+      required: true
+    },
+    year: {
+      type: Number,
+      required: true
+    },
+    length: {
+      type: Number,
+      required: true
+    },
+    shortDescription: {
+      type: String,
+      required: true
+    },
+    mpaRating: {
+      type: String,
+      required: true
+    },
+    criticsRating: {
+      type: Number,
+      required: true
+    },
+  });
 
 let Movie = model<IMovie>('Movie', movieSchema);
 

@@ -6,11 +6,10 @@
 
 import app from './Server/Config/app';
 import debug from 'debug';
-debug('mdev1004-m2023-ice4:server');
+debug('mdev1004-m2023-ice3:server');
 import http from 'http';
 import { AddressInfo } from 'net';
 import { HttpError } from 'http-errors';
-
 
 /**
  * Get port from environment and store in Express.
@@ -37,10 +36,12 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val : string) : string | number | false{
+function normalizePort(val:string) : string | number | false 
+{
   let port = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (isNaN(port)) 
+  {
     // named pipe
     return val;
   }
@@ -57,8 +58,10 @@ function normalizePort(val : string) : string | number | false{
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error : HttpError) : void {
-  if (error.syscall !== 'listen') {
+function onError(error: HttpError) : void
+{
+  if (error.syscall !== 'listen') 
+  {
     throw error;
   }
 
@@ -67,7 +70,8 @@ function onError(error : HttpError) : void {
     : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
-  switch (error.code) {
+  switch (error.code) 
+  {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
       process.exit(1);
@@ -85,7 +89,8 @@ function onError(error : HttpError) : void {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+function onListening() : void
+{
   let addr = server.address() as AddressInfo;
   let bind = typeof addr === 'string'
     ? 'pipe ' + addr
