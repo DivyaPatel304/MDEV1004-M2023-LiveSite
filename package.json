@@ -4,9 +4,8 @@
   "description": "This is a demo project for MDEV1004 - ICE 9 - in the Summer 2023 semester at Georgian",
   "author": "Tom Tsiliopoulos",
   "engines": {
-    "node": "20.2.0",
-    "npm": "9.6.6",
-    "yarn": "1.22.19"
+    "node": "20.1.0",
+    "npm": "9.6.4"
   },
   "scripts": {
     "start": "node server.js"
